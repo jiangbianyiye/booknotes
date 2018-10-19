@@ -18,6 +18,7 @@ class Solution {
 public:
     RandomListNode* Clone(RandomListNode* pHead)
     {
+        //在每个节点后复制出一个节点
         auto pCur = pHead;
         while(pCur != nullptr){
             RandomListNode * newNode = new RandomListNode(pCur->label);
@@ -26,7 +27,8 @@ public:
             newNode->next = pNext;
             pCur = pNext;
         }
-
+        
+        //复制random指针
         pCur = pHead;
         while(pCur != nullptr){
             if(pCur->random != nullptr){
@@ -34,34 +36,22 @@ public:
             }
             pCur = pCur->next->next;
         }
-
+        
+        //将链表拆分
         pCur = pHead;
         RandomListNode * pClonedHead = nullptr;
         RandomListNode * pClonedCur = nullptr;
-        RandomListNode * pOriginCur = nullptr;
-        
-        while(pCur != nullptr){
-            auto pNext = pCur->next;
-            
-            if(pOriginCur == nullptr){
-                pOriginCur = pCur;
-            }
-            else{
-                pOriginCur->next = pCur;
-                pOriginCur = pCur;
-            }
-            
-            if(pClonedHead == nullptr){
-                pClonedCur = pClonedHead = pNext;
-            }
-            else{
-                pClonedCur->next = pNext;
-                pClonedCur = pNext;
-            }
-            pCur = pNext->next;
+        if(pCur != nullptr){
+            pClonedCur = pClonedHead = pCur->next;
+            pCur->next = pClonedCur->next;
+            pCur = pCur->next;
         }
-        if(pOriginCur != nullptr)
-            pOriginCur->next = nullptr;
+        while(pCur != nullptr){
+            pClonedCur->next = pCur->next;
+            pClonedCur = pClonedCur->next;
+            pCur->next = pClonedCur->next;
+            pCur = pCur->next;
+        }
         return pClonedHead;
     }
 };
@@ -78,7 +68,6 @@ void printRandomList(RandomListNode * pHead){
 int main(int argc, char const *argv[])
 {
     Solution sl;
-
     RandomListNode * pHead = new RandomListNode(0);
     auto pCur = pHead;
     for(int i=1; i<5; ++i){

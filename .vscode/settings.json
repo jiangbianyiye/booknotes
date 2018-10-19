@@ -40,6 +40,13 @@
         "xtree": "cpp",
         "xutility": "cpp",
         "algorithm": "cpp",
-        "cctype": "cpp"
+        "cctype": "cpp",
+        "sstream": "cpp",
+        "vector": "cpp",
+        "bitset": "cpp",
+        "ctime": "cpp",
+        "iomanip": "cpp",
+        "xlocmon": "cpp",
+        "xloctime": "cpp"
     }
 }
