@@ -47,6 +47,8 @@
         "ctime": "cpp",
         "iomanip": "cpp",
         "xlocmon": "cpp",
-        "xloctime": "cpp"
+        "xloctime": "cpp",
+        "iterator": "cpp",
+        "list": "cpp"
     }
 }

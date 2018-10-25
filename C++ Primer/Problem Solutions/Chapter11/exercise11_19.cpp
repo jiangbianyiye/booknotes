@@ -19,23 +19,25 @@ bool compareIsbn(const Sales_data &lhs, const Sales_data &rhs)
     return lhs.isbn() < rhs.isbn();
 }
 
+using namespace std;
+
 int main(int argc, char const *argv[])
 {
-    using namespace std;
-
     //函数指针
     multiset<Sales_data, bool (*) (const Sales_data &lhs, const Sales_data &rhs)> bookstore(compareIsbn);
-    bookstore.insert(Sales_data("123456"));
-    for(auto & sales_data : bookstore){
-        std::cout<<sales_data.isbn()<<std::endl;
-    }
+    multiset<Sales_data, bool (*) (const Sales_data &lhs, const Sales_data &rhs)> ::iterator it = bookstore.begin();
+    cout<<typeid(it).name()<<endl;
 
     //使用typedef
     typedef bool (*fp) (const Sales_data &lhs, const Sales_data &rhs);  
     multiset<Sales_data, fp> bookstore2(compareIsbn);
-    bookstore2.insert(Sales_data("345678"));
-    for(auto & sales_data : bookstore2){
-        std::cout<<sales_data.isbn()<<std::endl;
-    }
+    multiset<Sales_data, fp>::iterator it2 = bookstore.begin();
+    cout<<typeid(it2).name()<<endl;
+
     return 0;
 }
+
+/* output:
+std::_Rb_tree_const_iterator<Sales_data>
+std::_Rb_tree_const_iterator<Sales_data>
+*/
