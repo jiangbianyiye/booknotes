@@ -49,6 +49,7 @@
         "xlocmon": "cpp",
         "xloctime": "cpp",
         "iterator": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "unordered_map": "cpp"
     }
 }
