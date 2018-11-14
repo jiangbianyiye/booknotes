@@ -50,6 +50,8 @@
         "xloctime": "cpp",
         "iterator": "cpp",
         "list": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "memory": "cpp",
+        "xhash": "cpp"
     }
 }
