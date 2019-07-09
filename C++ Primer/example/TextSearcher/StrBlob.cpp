@@ -12,6 +12,17 @@ StrBlob::StrBlob(std::initializer_list<std::string> il):
     return;
 }
 
+StrBlob::StrBlob(const StrBlob &origin)
+    :data(std::make_shared<std::vector<std::string> >(*origin.data) )
+{
+}
+
+StrBlob& StrBlob::operator=(const StrBlob &rhs)
+{
+    data = std::make_shared<std::vector<std::string> >(*rhs.data);
+    return *this;
+}
+
 std::string& StrBlob::front()
 {
     check(0, "front on empty StrBlob");

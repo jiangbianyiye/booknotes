@@ -18,6 +18,11 @@ public:
     typedef std::vector<std::string>::size_type size_type;
     StrBlob();
     StrBlob(std::initializer_list<std::string> il);
+
+    //13.26,使StrBlob类值
+    StrBlob(const StrBlob &origin);
+    StrBlob& operator=(const StrBlob &rhs);
+
     size_type size() const{return data->size(); }
     bool empty() const {return data->empty(); }
     //添加和删除元素
