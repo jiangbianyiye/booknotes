@@ -1,3 +1,6 @@
 # 编译结果
 .exe
 .o
+
+# vscode directiry
+.vscode
