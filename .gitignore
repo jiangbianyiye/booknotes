@@ -1,6 +1,9 @@
-# 编译结果
-.exe
-.o
+# compile result
+**/*.exe
+**/*.o
 
 # vscode directiry
-.vscode
+**/.vscode
+
+# build directory
+**/build
